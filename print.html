@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <title>高額人壽保單的選擇 ｜ 趙賢彬 董事長決策報告（A4 橫向列印版）</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --deepbrown:   #2C1A11;
+      --primary:     #1E3A8A;
+      --gold:        #C5A059;
+      --brightgold:  #D97706;
+      --cream:       #FBF9F5;
+      --card-bg:     #FFFFFF;
+      --red:         #DC2626;
+      --green:       #059669;
+      --warmbrown:   #78350F;
+      --text-muted:  #4B5563;
+      --border-color:#E5E7EB;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      background: #E5E0DA;
+      color: var(--deepbrown);
+    }
+
+    .print-page {
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+      break-after: page;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 14mm 18mm;
+      background: var(--cream);
+      margin: 0 auto;
+    }
+
+    /* 頂部導航頭 */
+    .slide-header {
+      border-left: 6px solid var(--gold);
+      padding-left: 14px;
+      margin-bottom: 12px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .slide-header-left h2 {
+      font-size: 24pt;
+      margin: 0;
+      line-height: 1.2;
+      color: var(--deepbrown);
+    }
+    .slide-header-left p {
+      font-size: 11pt;
+      color: var(--warmbrown);
+      margin: 4px 0 0 0;
+      font-weight: 600;
+    }
+    .tag-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 9pt;
+      font-weight: 700;
+      background: rgba(197, 160, 89, 0.15);
+      color: var(--warmbrown);
+      margin-bottom: 2px;
+    }
+
+    /* 結論橫幅 */
+    .takeaway-banner {
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 1.5px solid #FCD34D;
+      border-left: 6px solid #D97706;
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+    }
+    .takeaway-banner .icon { font-size: 18pt; flex-shrink: 0; }
+    .takeaway-banner .title { font-size: 11pt; font-weight: 800; color: #92400E; }
+    .takeaway-banner .desc { font-size: 10pt; color: #78350F; margin-top: 2px; }
+
+    /* 網格與卡片 */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .card.highlight {
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 12px rgba(197, 160, 89, 0.15);
+    }
+    .card-title {
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--deepbrown);
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-badge {
+      font-size: 8.5pt;
+      padding: 2px 6px;
+      border-radius: 10px;
+      background: #E0E7FF;
+      color: #3730A3;
+      font-weight: 700;
+    }
+    .card-badge.gold { background: #FEF3C7; color: #92400E; }
+
+    .kpi-num {
+      font-size: 20pt;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+    .kpi-num.gold { color: var(--brightgold); }
+    .kpi-num.red { color: var(--red); }
+    .kpi-num.green { color: var(--green); }
+    .kpi-sub { font-size: 9pt; color: var(--text-muted); margin-top: 2px; }
+
+    /* 數據表格 */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+      text-align: center;
+      background: #FFFFFF;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .compare-table th {
+      background: #1E293B;
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 8px 6px;
+    }
+    .compare-table th.brand-pru { background: #991B1B; }
+    .compare-table th.brand-aia { background: #E11D48; }
+    .compare-table th.brand-tg  { background: #0369A1; }
+    .compare-table td {
+      padding: 7px 6px;
+      border-bottom: 1px solid #F1F5F9;
+      border-right: 1px solid #F1F5F9;
+    }
+    .compare-table tr.highlight-row { background: #FEFCE8; font-weight: 700; }
+    .compare-table td.winner {
+      background: rgba(217, 119, 6, 0.12);
+      font-weight: 800;
+      color: #B45309;
+    }
+    .compare-table td.dim { color: #94A3B8; }
+
+    .chart-container {
+      position: relative;
+      height: 195px;
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 6px;
+      padding: 6px;
+      border: 1px solid #E5E7EB;
+    }
+
+    /* 頁底 */
+    .footer-bar {
+      margin-top: auto;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: #9CA3AF;
+      border-top: 1px solid #E5E7EB;
+    }
+    .footer-brand { color: var(--warmbrown); font-weight: 700; }
+
+    /* 封面 */
+    .cover-page {
+      background: linear-gradient(135deg, #2C1A11 0%, #1A0F0A 100%);
+      color: #FFFFFF;
+      justify-content: center;
+      padding: 24mm;
+    }
+    .cover-page h1 { font-size: 34pt; color: #FFFFFF; margin: 12px 0 6px 0; }
+    .cover-page .sub-title { font-size: 16pt; color: var(--gold); font-weight: 600; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: 封面 -->
+  <div class="print-page cover-page">
+    <div style="display:flex; gap:10px; margin-bottom:16px;">
+      <span style="border:1px solid var(--gold); padding:4px 12px; border-radius:15px; font-size:10pt; color:#FDE68A; font-weight:700;">問大師家族辦公室</span>
+      <span style="border:1px solid var(--gold); padding:4px 12px; border-radius:15px; font-size:10pt; color:#FDE68A; font-weight:700;">高資產傳承專案</span>
+      <span style="border:1px solid var(--gold); padding:4px 12px; border-radius:15px; font-size:10pt; color:#FDE68A; font-weight:700;">同等預算 Apple-to-Apple 比對</span>
+    </div>
+    <h1>高額人壽保單的選擇</h1>
+    <div class="sub-title">台幣與美元六大主流保單深度決策分析報告</div>
+    <p style="font-size:12pt; color:#D1D5DB; max-width:800px; line-height:1.6;">
+      本報告依據趙董「談重點、講結論、重績效」之決策風格，以總繳約 1,230 萬元同等預算基準，橫向深度比對保誠、友邦、全球之台幣與美元保單，為家族傳承鎖定最高槓桿與無稅現金流。
+    </p>
+    <div style="border-top:1px solid rgba(255,255,255,0.2); padding-top:20px; margin-top:24px; display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <div style="font-size:10pt; color:#9CA3AF;">專屬報告對象</div>
+        <div style="font-size:16pt; font-weight:800; color:#F3F4F6;">竹北置地 趙賢彬 董事長</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:9pt; color:#9CA3AF;">評估日期：2026 年 10 月</div>
+        <div style="font-size:11pt; color:var(--gold); font-weight:700;">顧問團隊：問大師傳承精算專家小組</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: 背景與核心命題 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">決策背景與核心命題</span>
+        <h2>為什麼趙董需要配置高額人壽保單？</h2>
+        <p>直擊三大痛點：2,241 萬遺產稅現金缺口、不動產流動性緊縮、1,546 萬解約金轉向</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">🎯</span>
+      <div>
+        <div class="title">老闆結論：把「即將被課 20% 稅的現金」轉化為「免稅傳承高額槓桿」</div>
+        <div class="desc">
+          趙董資產 85% 鎖在不動產與股票，身故需繳納 <strong>2,241 萬現金遺產稅</strong>。將 115/06 到期的 1,546 萬保單解約金分 6 年投入高額壽險（年繳約 205 萬），立即創造 <strong>1,500 萬～3,500 萬免稅現金</strong>，保全土地不被賤賣！
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 8px;">
+      <div class="card" style="border-top: 4px solid var(--red);">
+        <div class="card-title">
+          <span>現狀：鉅額遺產稅負</span>
+          <span class="card-badge" style="background:#FEE2E2; color:#991B1B;">稅率 20%</span>
+        </div>
+        <div class="kpi-num red">$2,241 萬</div>
+        <div class="kpi-sub">趙董預估應納遺產稅額</div>
+        <p style="font-size: 9.5pt; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+          遺產總額達 <strong>1.75 億元</strong>（公告現值），扣除額後淨額 1.54 億全數落入最高 20% 級距，繼承人須於 <strong>6 個月內以現金完稅</strong>。
+        </p>
+      </div>
+
+      <div class="card" style="border-top: 4px solid var(--brightgold);">
+        <div class="card-title">
+          <span>契機：115/06 解約金</span>
+          <span class="card-badge gold">免調度資金</span>
+        </div>
+        <div class="kpi-num gold">$1,546 萬</div>
+        <div class="kpi-sub">投資型保單 115/06 到期解約金</div>
+        <p style="font-size: 9.5pt; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+          原保德信 IVL 即將領回 <strong>$15,468,196 元</strong>。若直接存入銀行，身故將被課徵 <strong>約 309 萬元</strong> 遺產稅，極需轉入合規免稅資產。
+        </p>
+      </div>
+
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="card-title">
+          <span>解方：高額壽險槓桿</span>
+          <span class="card-badge" style="background:#D1FAE5; color:#065F46;">保險法 112 條</span>
+        </div>
+        <div class="kpi-num green">1.5x ~ 8.0x</div>
+        <div class="kpi-sub">保障槓桿放大倍數</div>
+        <p style="font-size: 9.5pt; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+          6 年總繳約 1,230 萬元，首年立即啟動最高 <strong>1,500 萬～1,650 萬（52萬鎂）</strong> 身故金，指定受益人直撥現金，免遺產分割爭議。
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 2 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 3: 台幣三張總覽 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第一部分：新臺幣高額保單</span>
+        <h2>台幣三張保單規格總覽（年繳 ~205 萬）</h2>
+        <p>預算 100% 精確對齊：6 年總繳均為 1,214 萬 ～ 1,235 萬元（趙董 58 歲）</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">💡</span>
+      <div>
+        <div class="title">老闆結論：同繳約 1,230 萬，三大品牌各具單項冠軍，依趙董首要目標定奪</div>
+        <div class="desc">
+          <strong>友邦</strong> 奪下「首年槓桿之王」（首年享 1,500 萬全額保障）；<strong>保誠</strong> 奪下「滿期分紅之王」（滿期身故金高達 1,745~2,656 萬且第 9 年最快保本）；<strong>全球</strong> 則內建獨特醫療長照附約。
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 6px;">
+      <div class="card highlight">
+        <div class="card-title">
+          <span>友邦 萬寶富裕</span>
+          <span class="card-badge" style="background:#FEE2E2; color:#991B1B;">首年槓桿第一</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">利變型 ｜ 宣告 2.40% ｜ 預定 1.35%</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$205.8 萬</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$1,234.7 萬</div>
+          </div>
+        </div>
+        <div style="background:#FEF2F2; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#991B1B; font-weight:700;">★ 首年身故保額：$1,500.6 萬</div>
+          <div style="font-size:8.5pt; color:#B91C1C;">首年保障槓桿高達 <strong>7.29 倍</strong>（無空窗期）</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 滿期身故金：$1,542 萬 (1.25x)<br/>
+          • 20年身故金：$1,785 萬 (1.45x)<br/>
+          • 解約保本年期：<strong>第 10 年末 (101.8%)</strong>
+        </div>
+      </div>
+
+      <div class="card highlight">
+        <div class="card-title">
+          <span>保誠 金世代</span>
+          <span class="card-badge gold">滿期分紅第一</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">英式分紅 ｜ 假設中分紅雙重滾存</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$202.3 萬</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$1,214.0 萬</div>
+          </div>
+        </div>
+        <div style="background:#FFFBEB; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#92400E; font-weight:700;">★ 期滿身故保額：$1,745.6 萬</div>
+          <div style="font-size:8.5pt; color:#B45309;">20年身故金衝破 <strong>$2,018 萬</strong> (1.66x)</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 首年身故保額：$1,300 萬 (6.42x)<br/>
+          • 滿期祝壽金：<strong>$2,656 萬 (2.19x)</strong><br/>
+          • 解約保本年期：<strong>第 9 年末最快保本 (104.0%)</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>全球 豪威六六</span>
+          <span class="card-badge" style="background:#E0F2FE; color:#0369A1;">醫療附約第一</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">利變型 ｜ 宣告 2.45% ｜ 預定 2.00%</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$205.3 萬</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$1,231.7 萬</div>
+          </div>
+        </div>
+        <div style="background:#F0F9FF; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#0369A1; font-weight:700;">★ 第4年保額跳升：$1,709.2 萬</div>
+          <div style="font-size:8.5pt; color:#0284C7;">第4年跳升 1,700 萬基本保額</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 首年身故保額：$217 萬 (前3年僅退費無槓桿)<br/>
+          • 滿期身故金：$1,722 萬 (1.40x)<br/>
+          • 解約保本年期：<strong>第 10 年末 (101.1%)</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 3 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 4: 台幣身故保障走勢 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第一部分：身故保障（槓桿倍數）軌跡</span>
+        <h2>台幣三張保單：各年身故保障走勢與精算表</h2>
+        <p>評估要點：首年保障爆發力 vs 繳費期滿後的資產放大倍數</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="align-items: center; gap: 14px;">
+      <div class="chart-container">
+        <canvas id="chartTwdPrint"></canvas>
+      </div>
+
+      <div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>保單年度 (年齡)</th>
+              <th class="brand-aia">友邦 萬寶富裕</th>
+              <th class="brand-pru">保誠 金世代</th>
+              <th class="brand-tg">全球 豪威六六</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>第 1 年 (58歲)</td>
+              <td class="winner">1,500.6 萬 (7.29x)</td>
+              <td>1,300.0 萬 (6.42x)</td>
+              <td class="dim">217.4 萬 (1.06x)</td>
+            </tr>
+            <tr>
+              <td>第 4 年 (61歲)</td>
+              <td>1,516.6 萬 (1.84x)</td>
+              <td>1,410.8 萬 (1.74x)</td>
+              <td class="winner">1,709.2 萬 (2.08x)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>第 6 年 (63歲期滿)</td>
+              <td>1,541.6 萬 (1.25x)</td>
+              <td class="winner">1,745.6 萬 (1.44x)</td>
+              <td>1,721.9 萬 (1.40x)</td>
+            </tr>
+            <tr>
+              <td>第 10 年 (67歲)</td>
+              <td>1,607.2 萬 (1.30x)</td>
+              <td class="winner">1,852.0 萬 (1.53x)</td>
+              <td>1,752.9 萬 (1.42x)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>第 20 年 (77歲)</td>
+              <td>1,784.7 萬 (1.45x)</td>
+              <td class="winner">2,018.3 萬 (1.66x)</td>
+              <td>1,832.9 萬 (1.49x)</td>
+            </tr>
+            <tr>
+              <td>滿期 (109/110歲)</td>
+              <td>2,521.0 萬 (2.04x)</td>
+              <td class="winner">2,655.9 萬 (2.19x)</td>
+              <td>2,115.1 萬 (1.72x)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size:8.5pt; color:#6B7280; margin-top:4px; text-align:right;">
+          ※ 括號內為身故保障對當年度累計總繳保費之槓桿倍數。保誠為中分紅試算。
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway-banner" style="margin-top: 10px; margin-bottom: 0;">
+      <span class="icon">📊</span>
+      <div>
+        <div class="title">身故保障走向判讀：</div>
+        <div class="desc">
+          <strong>首年前三年</strong>：友邦 1,500 萬居首，全球幾乎無槓桿；<strong>第 6 年期滿後</strong>：保誠英式分紅開始全力爆發，身故金一路飆破 2,000 萬，長期傳承效益全面奪冠！
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 4 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 5: 台幣保本期比較 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第一部分：資金靈活度與解約保本</span>
+        <h2>台幣三張保單：流動性與何時回本？</h2>
+        <p>萬一趙董本人未來有緊急現金週轉需求，保單能拿回多少？</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">💰</span>
+      <div>
+        <div class="title">老闆結論：保誠第 9 年最快保本；第 20 年保誠解約金領先友邦 36 萬、領先全球 85 萬</div>
+        <div class="desc">
+          繳費期滿第 6 年解約金以全球 93.7% 最高；但若持有至第 9 年末，保誠金世代因分紅累積快速突破 100% 門檻（103.98% 回本），第 20 年保本率高達 128.5%！
+        </div>
+      </div>
+    </div>
+
+    <table class="compare-table" style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th>關鍵年度 (指標)</th>
+          <th class="brand-aia">友邦 萬寶富裕</th>
+          <th class="brand-pru">保誠 金世代</th>
+          <th class="brand-tg">全球 豪威六六</th>
+          <th>指標意義</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>第 6 年末 (剛繳完)</strong></td>
+          <td>$1,146.0 萬 (92.82%)</td>
+          <td>$1,073.4 萬 (88.42%)</td>
+          <td class="winner">$1,154.5 萬 (93.73%)</td>
+          <td style="text-align:left; font-size:9pt;">全球與友邦繳完第 6 年立即拿回逾 92%~93%</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>正式保本年度</strong></td>
+          <td>第 10 年末 (101.78%)</td>
+          <td class="winner">第 9 年末 (103.98%)</td>
+          <td>第 10 年末 (101.14%)</td>
+          <td style="text-align:left; font-size:9pt; color:#B45309; font-weight:700;">★ 保誠提前 1 年保本回本！</td>
+        </tr>
+        <tr>
+          <td><strong>第 10 年末解約金</strong></td>
+          <td>$1,256.7 萬 (101.78%)</td>
+          <td class="winner">$1,288.2 萬 (106.11%)</td>
+          <td>$1,245.7 萬 (101.14%)</td>
+          <td style="text-align:left; font-size:9pt;">保誠已淨獲利 74 萬元</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>第 20 年末 (77歲)</strong></td>
+          <td>$1,523.4 萬 (123.39%)</td>
+          <td class="winner">$1,559.8 萬 (128.49%)</td>
+          <td>$1,475.1 萬 (119.76%)</td>
+          <td style="text-align:left; font-size:9pt; color:#059669; font-weight:700;">保誠增值 346 萬元，保本率達 128.5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3" style="margin-top: 12px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:10pt; color:#6B7280;">友邦 保本年期</div>
+        <div class="kpi-num" style="font-size:18pt; margin-top:2px;">第 10 年</div>
+        <div class="kpi-sub">宣告 2.40% 穩健增長</div>
+      </div>
+      <div class="card" style="text-align:center; border:2px solid var(--gold);">
+        <div style="font-size:10pt; color:#92400E; font-weight:700;">保誠 保本年期</div>
+        <div class="kpi-num gold" style="font-size:18pt; margin-top:2px;">第 9 年（最快）</div>
+        <div class="kpi-sub">中分紅雙重複利加速</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:10pt; color:#6B7280;">全球 保本年期</div>
+        <div class="kpi-num" style="font-size:18pt; margin-top:2px;">第 10 年</div>
+        <div class="kpi-sub">宣告 2.45% 前期現金價值高</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 5 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 6: 台幣決策結論 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第一部分：決策定案</span>
+        <h2>台幣保單：趙董該選哪一張？</h2>
+        <p>一眼看懂決策邏輯：根據趙董當下最在乎的目標精準拍板</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap: 16px; margin-top: 8px;">
+      <div class="card" style="border: 2px solid #DC2626; background: #FFFDFD;">
+        <div class="card-title">
+          <span style="color:#991B1B;">方案 A：極重防禦（第一天就要搞定遺產稅）</span>
+          <span class="card-badge" style="background:#FEE2E2; color:#991B1B;">首選推薦</span>
+        </div>
+        <div style="font-size: 16pt; font-weight: 800; color: #1F2937; margin: 4px 0;">
+          🏆 友邦人壽 萬寶富裕（台幣利變）
+        </div>
+        <ul style="font-size: 10pt; color: #374151; line-height: 1.6; padding-left: 18px; margin: 6px 0;">
+          <li><strong>首年繳 205.8 萬，立即享有 1,500 萬元身故金（槓桿 7.29 倍）</strong>。</li>
+          <li>第一天直接將家族 2,241 萬遺產稅缺口鎖死 70%！完全沒有前三年空窗期。</li>
+          <li>支援身故保險金分期給付，防範家族子女揮霍。</li>
+        </ul>
+        <div style="background:#FEE2E2; padding:6px 10px; border-radius:4px; font-size:9pt; color:#991B1B; font-weight:700;">
+          適合目標：不願承擔任何前置風險，要立即有 1,500 萬現金備戰遺產稅。
+        </div>
+      </div>
+
+      <div class="card" style="border: 2px solid #D97706; background: #FFFDF8;">
+        <div class="card-title">
+          <span style="color:#92400E;">方案 B：極重績效（追求傳承金額最大化）</span>
+          <span class="card-badge gold">首選推薦</span>
+        </div>
+        <div style="font-size: 16pt; font-weight: 800; color: #1F2937; margin: 4px 0;">
+          🏆 保誠人壽 金世代（台幣英式分紅）
+        </div>
+        <ul style="font-size: 10pt; color: #374151; line-height: 1.6; padding-left: 18px; margin: 6px 0;">
+          <li>首年亦具備 <strong>1,300 萬元高保額（槓桿 6.42 倍）</strong>，防護力同樣優秀。</li>
+          <li>繳費期滿身故金躍升至 <strong>1,745.6 萬</strong>、20年衝破 <strong>2,018 萬</strong>，傳承金高居第一。</li>
+          <li><strong>第 9 年最快保本</strong>，且第 20 年解約金達 1,560 萬，兼顧高現金價值。</li>
+        </ul>
+        <div style="background:#FEF3C7; padding:6px 10px; border-radius:4px; font-size:9pt; color:#92400E; font-weight:700;">
+          適合目標：追求後代拿回最多錢，且重視保單回本速度與抗通膨爆發力。
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 10px; background: #F8FAFC;">
+      <div style="font-size: 11pt; font-weight: 700; color: #334155; margin-bottom: 2px;">
+        📌 為什麼不優先推薦全球豪威六六？
+      </div>
+      <div style="font-size: 9.5pt; color: #64748B; line-height: 1.4;">
+        全球豪威六六第 1~3 年身故保障僅為累計保費加少許利息（首年僅 217 萬，槓桿 1.06x），若前三年發生風險無法起到預留稅源之效；但若趙董特別看重其老年照護住院醫療等附約，則可作為輔助方案。
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 6 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 7: 美元三張總覽 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第二部分：美元高額保單</span>
+        <h2>美元三張保單規格總覽（年繳 ~US$ 6.45 萬）</h2>
+        <p>預算 100% 精確對齊：6 年總繳均為 US$ 38.6 萬 ～ 38.9 萬美元（折合 NT$ 1,230 萬）</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">💵</span>
+      <div>
+        <div class="title">老闆結論：美元利率優勢顯著（宣告 4.2%~4.25%），保誠期滿直接突破 109 萬美元！</div>
+        <div class="desc">
+          美元保單在相同 1,230 萬台幣預算下，傳承效益大幅超越台幣：<strong>保誠美保相傳</strong>期滿身故金破 <strong>109 萬美元（約 3,460 萬台幣）</strong>且第 6 年立即保本；<strong>友邦萬寶富利</strong>首年槓桿高達 <strong>8.02 倍</strong>；<strong>全球豪神68</strong>第 7 年保本。
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 6px;">
+      <div class="card highlight">
+        <div class="card-title">
+          <span>友邦 萬寶富利</span>
+          <span class="card-badge" style="background:#FEE2E2; color:#991B1B;">首年槓桿 8 倍</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">美元利變 ｜ 宣告 4.25% ｜ 預定 2.00%</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$64,866 鎂</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$389,196 鎂</div>
+          </div>
+        </div>
+        <div style="background:#FEF2F2; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#991B1B; font-weight:700;">★ 首年身故保額：$520,401 鎂</div>
+          <div style="font-size:8.5pt; color:#B91C1C;">首年槓桿高達 <strong>8.02 倍</strong>（折合台幣 1,650 萬）</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 滿期祝壽金：<strong>$157 萬鎂 (4.03x)</strong><br/>
+          • 20年解約金：$59.8 萬鎂 (153.7%)<br/>
+          • 解約保本年期：<strong>第 8 年末 (100.7%)</strong>
+        </div>
+      </div>
+
+      <div class="card highlight" style="border: 2px solid #D97706;">
+        <div class="card-title">
+          <span>保誠 美保相傳</span>
+          <span class="card-badge gold">身故破百萬鎂</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">英式分紅 ｜ 假設中分紅雙重滾存</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$64,390 鎂</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$386,340 鎂</div>
+          </div>
+        </div>
+        <div style="background:#FFFBEB; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#92400E; font-weight:700;">★ 期滿身故保額：$1,091,417 鎂</div>
+          <div style="font-size:8.5pt; color:#B45309;">期滿身故金破 <strong>109 萬美元</strong>（約 NT$ 3,460 萬）</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 首年身故保額：$310,000 鎂 (4.81x)<br/>
+          • 20年身故金：<strong>$114.9 萬鎂 (2.97x)</strong><br/>
+          • 解約保本年期：<strong>第 6 年末立即保本 (101.6%)</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>全球 豪神68</span>
+          <span class="card-badge" style="background:#E0F2FE; color:#0369A1;">現金增長第一</span>
+        </div>
+        <div style="font-size: 9pt; color: var(--text-muted); margin-bottom: 6px;">美元利變 ｜ 宣告 4.20% ｜ 預定 2.50%</div>
+        <div class="grid-2" style="gap: 6px; margin-bottom: 6px;">
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">年繳實繳保費</div>
+            <div style="font-size: 14pt; font-weight:800;">$64,679 鎂</div>
+          </div>
+          <div>
+            <div style="font-size: 8pt; color:#6B7280;">6年累計實繳</div>
+            <div style="font-size: 14pt; font-weight:800;">$388,074 鎂</div>
+          </div>
+        </div>
+        <div style="background:#F0F9FF; border-radius:4px; padding:6px; margin-bottom:6px;">
+          <div style="font-size:9.5pt; color:#0369A1; font-weight:700;">★ 第3年跳升保額：$609,142 鎂</div>
+          <div style="font-size:8.5pt; color:#0284C7;">第3年跳升基本保額 60 萬美元 (3.14x)</div>
+        </div>
+        <div style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4;">
+          • 首年身故保額：$75,153 鎂 (前期無槓桿)<br/>
+          • 20年解約金：<strong>$61.5 萬鎂 (158.5% 最高)</strong><br/>
+          • 解約保本年期：<strong>第 7 年末 (101.9%)</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 7 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 8: 美元身故保障走勢 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第二部分：美元身故保障（槓桿倍數）軌跡</span>
+        <h2>美元三張保單：各年身故保障走勢與精算表</h2>
+        <p>震撼對比：保誠美保相傳在第 6 年期滿以 109 萬美元呈現斷層式領先！</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="align-items: center; gap: 14px;">
+      <div class="chart-container">
+        <canvas id="chartUsdPrint"></canvas>
+      </div>
+
+      <div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>保單年度 (年齡)</th>
+              <th class="brand-aia">友邦 萬寶富利</th>
+              <th class="brand-pru">保誠 美保相傳</th>
+              <th class="brand-tg">全球 豪神68</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td>第 1 年 (58歲)</td>
+              <td class="winner">$520,401 (8.02x)</td>
+              <td>$310,000 (4.81x)</td>
+              <td class="dim">$75,153 (1.16x)</td>
+            </tr>
+            <tr>
+              <td>第 3 年 (60歲)</td>
+              <td>$525,871 (2.70x)</td>
+              <td>$310,000 (1.60x)</td>
+              <td class="winner">$609,142 (3.14x)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>第 6 年 (63歲期滿)</td>
+              <td>$550,410 (1.41x)</td>
+              <td class="winner">$1,091,417 (2.83x)</td>
+              <td>$635,282 (1.64x)</td>
+            </tr>
+            <tr>
+              <td>第 10 年 (67歲)</td>
+              <td>$601,413 (1.55x)</td>
+              <td class="winner">$1,104,964 (2.86x)</td>
+              <td>$679,596 (1.75x)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>第 20 年 (77歲)</td>
+              <td>$751,803 (1.93x)</td>
+              <td class="winner">$1,148,643 (2.97x)</td>
+              <td>$804,373 (2.07x)</td>
+            </tr>
+            <tr>
+              <td>滿期 (109/110歲)</td>
+              <td class="winner">$1,569,873 (4.03x)</td>
+              <td>$1,498,106 (3.88x)</td>
+              <td>$1,379,522 (3.55x)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="font-size:8.5pt; color:#6B7280; margin-top:4px; text-align:right;">
+          ※ 單位：美元。括號內為身故保障對當年度累計總繳保費之槓桿倍數。保誠為中分紅試算。
+        </div>
+      </div>
+    </div>
+
+    <div class="takeaway-banner" style="margin-top: 10px; margin-bottom: 0;">
+      <span class="icon">📊</span>
+      <div>
+        <div class="title">身故保障走向判讀：</div>
+        <div class="desc">
+          <strong>第 1 年</strong> 友邦以 <strong>52 萬美元 (8.02x)</strong> 稱霸，給予最高初階安全感；但<strong>第 6 年期滿後</strong>，保誠美保相傳瞬間衝到 <strong>109.1 萬美元</strong>，比全球高出 45.6 萬鎂、比友邦高出 54.1 萬鎂，傳承極值無人能敵！
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 8 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 9: 美元保本期比較 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第二部分：美元資金靈活度與解約保本</span>
+        <h2>美元三張保單：流動性與何時回本？</h2>
+        <p>保誠第 6 年繳完立即保本；全球與友邦則在 20 年後現金價值大幅反超</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">📈</span>
+      <div>
+        <div class="title">老闆結論：要「最快保本」選保誠（第6年101.6%）；要「長期現金累積」選全球/友邦（20年逾153%）</div>
+        <div class="desc">
+          保誠第 6 年解約金達 39.2 萬美元，總繳 38.6 萬即刻回本！若持有至第 20 年，全球解約金達 61.5 萬美元、友邦達 59.8 萬美元，保本率高達 158.5% 與 153.7%。
+        </div>
+      </div>
+    </div>
+
+    <table class="compare-table" style="margin-top: 8px;">
+      <thead>
+        <tr>
+          <th>關鍵年度 (指標)</th>
+          <th class="brand-aia">友邦 萬寶富利</th>
+          <th class="brand-pru">保誠 美保相傳</th>
+          <th class="brand-tg">全球 豪神68</th>
+          <th>指標意義</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>第 6 年末 (剛繳完)</strong></td>
+          <td>$360,471 (92.62%)</td>
+          <td class="winner">$392,434 (101.58%)</td>
+          <td>$377,818 (97.36%)</td>
+          <td style="text-align:left; font-size:9pt; color:#B45309; font-weight:700;">★ 保誠第 6 年末直接保本！</td>
+        </tr>
+        <tr>
+          <td><strong>正式保本年度</strong></td>
+          <td>第 8 年末 (100.72%)</td>
+          <td class="winner">第 6 年末 (101.58%)</td>
+          <td>第 7 年末 (101.90%)</td>
+          <td style="text-align:left; font-size:9pt;">保誠第6年 ＞ 全球第7年 ＞ 友邦第8年</td>
+        </tr>
+        <tr>
+          <td><strong>第 10 年末解約金</strong></td>
+          <td>$421,859 (108.39%)</td>
+          <td>$404,487 (104.70%)</td>
+          <td class="winner">$440,086 (113.40%)</td>
+          <td style="text-align:left; font-size:9pt;">全球解約金領先保誠 3.5 萬美元</td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>第 20 年末 (77歲)</strong></td>
+          <td>$598,299 (153.73%)</td>
+          <td>$430,986 (111.56%)</td>
+          <td class="winner">$615,122 (158.51%)</td>
+          <td style="text-align:left; font-size:9pt; color:#059669; font-weight:700;">全球與友邦利變複利爆發，增值逾 22 萬美元</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3" style="margin-top: 12px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:10pt; color:#6B7280;">友邦 保本年期</div>
+        <div class="kpi-num" style="font-size:18pt; margin-top:2px;">第 8 年</div>
+        <div class="kpi-sub">宣告 4.25% 穩健增長</div>
+      </div>
+      <div class="card" style="text-align:center; border:2px solid var(--gold);">
+        <div style="font-size:10pt; color:#92400E; font-weight:700;">保誠 保本年期</div>
+        <div class="kpi-num gold" style="font-size:18pt; margin-top:2px;">第 6 年（最快）</div>
+        <div class="kpi-sub">繳費滿期即刻保本</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:10pt; color:#6B7280;">全球 保本年期</div>
+        <div class="kpi-num" style="font-size:18pt; margin-top:2px;">第 7 年</div>
+        <div class="kpi-sub">20年現金價值 $61.5萬最高</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 9 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 10: 美元決策結論 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第二部分：決策定案</span>
+        <h2>美元保單：趙董該選哪一張？</h2>
+        <p>一眼看懂決策邏輯：根據趙董當下最在乎的目標精準拍板</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap: 16px; margin-top: 8px;">
+      <div class="card" style="border: 2px solid #D97706; background: #FFFDF8;">
+        <div class="card-title">
+          <span style="color:#92400E;">方案 A：極致傳承（身故金突破 100 萬美元）</span>
+          <span class="card-badge gold">冠軍首選</span>
+        </div>
+        <div style="font-size: 16pt; font-weight: 800; color: #1F2937; margin: 4px 0;">
+          🏆 保誠人壽 美保相傳（美元英式分紅）
+        </div>
+        <ul style="font-size: 10pt; color: #374151; line-height: 1.6; padding-left: 18px; margin: 6px 0;">
+          <li><strong>期滿身故金高達 US$ 1,091,417（折合 NT$ 3,460 萬）</strong>，遠超所有對手。</li>
+          <li>總繳 38.6 萬換逾 109 萬美元保障，傳承槓桿高達 <strong>2.83 倍</strong>！</li>
+          <li><strong>第 6 年繳完立即保本（101.58%）</strong>，資金安全邊際極高。</li>
+        </ul>
+        <div style="background:#FEF3C7; padding:6px 10px; border-radius:4px; font-size:9pt; color:#92400E; font-weight:700;">
+          適合目標：追求後代拿到最多美元現金遺產，將 1,230 萬預算放大至 3,460 萬！
+        </div>
+      </div>
+
+      <div class="card" style="border: 2px solid #DC2626; background: #FFFDFD;">
+        <div class="card-title">
+          <span style="color:#991B1B;">方案 B：首年頂級防禦（第一天鎖定 52 萬美元）</span>
+          <span class="card-badge" style="background:#FEE2E2; color:#991B1B;">首選推薦</span>
+        </div>
+        <div style="font-size: 16pt; font-weight: 800; color: #1F2937; margin: 4px 0;">
+          🏆 友邦人壽 萬寶富利（美元利變）
+        </div>
+        <ul style="font-size: 10pt; color: #374151; line-height: 1.6; padding-left: 18px; margin: 6px 0;">
+          <li><strong>首年繳 6.48 萬美元，身故保障直接拉滿至 52 萬美元（8.02 倍槓桿）</strong>。</li>
+          <li>折合台幣約 1,650 萬元，第一天就解決家族 75% 的遺產稅現金需求。</li>
+          <li>宣告利率 4.25% 終身複利，110 歲祝壽金達 157 萬美元居三者之冠。</li>
+        </ul>
+        <div style="background:#FEE2E2; padding:6px 10px; border-radius:4px; font-size:9pt; color:#991B1B; font-weight:700;">
+          適合目標：不容許初期有保障空窗期，第一天就要鎖定 52 萬美元稅源。
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 10px; background: #F8FAFC;">
+      <div style="font-size: 11pt; font-weight: 700; color: #334155; margin-bottom: 2px;">
+        📌 全球豪神68的定位：
+      </div>
+      <div style="font-size: 9.5pt; color: #64748B; line-height: 1.4;">
+        全球豪神68第 3 年保額跳升 60 萬美元，且第 20 年解約金達 61.5 萬美元（158.5%）為三者最高；若趙董將來有極大機率「自己解約拿回現金當退休養老金」，全球豪神68是流動性極佳的選擇。
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 10 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 11: 台幣 vs 美元 總體大戰略 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">第三部分：戰略總評</span>
+        <h2>台幣 vs 美元 終極對決：老闆該選哪種幣別？</h2>
+        <p>同樣投入約 1,230 萬元新臺幣預算，美元保單傳承槓桿高出近 1 倍！</p>
+      </div>
+    </div>
+
+    <div class="takeaway-banner">
+      <span class="icon">👑</span>
+      <div>
+        <div class="title">終極績效結論：同樣總繳 1,230 萬，美元保單期滿保障比台幣多出約 1,714 萬元！</div>
+        <div class="desc">
+          美元利率高達 4.2%~4.25%（台幣僅 2.4%），精算成本大幅降低。保誠美保相傳期滿身故金達 <strong>109.1 萬美元（折合台幣約 3,460 萬）</strong>，而台幣金世代期滿為 <strong>1,746 萬台幣</strong>。若無換匯障礙，<strong>強烈建議優先配置美元保單</strong>！
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 8px; gap: 14px;">
+      <div class="card" style="border-top: 4px solid #B45309;">
+        <div class="card-title">
+          <span>台幣最優方案：保誠 金世代</span>
+          <span class="card-badge gold">免匯率風險</span>
+        </div>
+        <div class="grid-2" style="gap: 6px; margin: 6px 0;">
+          <div>
+            <div style="font-size:8.5pt; color:#6B7280;">6年總繳保費</div>
+            <div style="font-size:16pt; font-weight:800; color:#1F2937;">NT$ 1,214 萬</div>
+          </div>
+          <div>
+            <div style="font-size:8.5pt; color:#6B7280;">期滿身故保障</div>
+            <div style="font-size:16pt; font-weight:800; color:#B45309;">NT$ 1,746 萬</div>
+          </div>
+        </div>
+        <ul style="font-size:9.5pt; color:#4B5563; line-height:1.5; padding-left:16px;">
+          <li><strong>槓桿倍數</strong>：期滿 1.44 倍 ｜ 第 20 年 1.66 倍 (2,018萬)</li>
+          <li><strong>主要優勢</strong>：100% 台幣收付，完全免除台美匯率波動風險。</li>
+          <li><strong>主要劣勢</strong>：受限台幣低利率環境，身故保額成長天花板較低。</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-top: 4px solid #1E3A8A; background: #F8FAFC;">
+        <div class="card-title">
+          <span>美元最優方案：保誠 美保相傳</span>
+          <span class="card-badge" style="background:#DBEAFE; color:#1E40AF;">效益輾壓</span>
+        </div>
+        <div class="grid-2" style="gap: 6px; margin: 6px 0;">
+          <div>
+            <div style="font-size:8.5pt; color:#6B7280;">6年總繳保費</div>
+            <div style="font-size:16pt; font-weight:800; color:#1F2937;">US$ 38.6 萬 <span style="font-size:9pt; color:#6B7280;">(~1,225萬)</span></div>
+          </div>
+          <div>
+            <div style="font-size:8.5pt; color:#6B7280;">期滿身故保障</div>
+            <div style="font-size:16pt; font-weight:800; color:#1E40AF;">US$ 109.1 萬 <span style="font-size:9pt; color:#DC2626;">(~3,460萬!)</span></div>
+          </div>
+        </div>
+        <ul style="font-size:9.5pt; color:#4B5563; line-height:1.5; padding-left:16px;">
+          <li><strong>槓桿倍數</strong>：期滿 <strong>2.83 倍</strong> ｜ 第 20 年 <strong>2.97 倍</strong> (114.9萬鎂)</li>
+          <li><strong>主要優勢</strong>：身故金折合台幣約 3,460 萬，比台幣多出 <strong>1,714 萬元 (+98%)</strong>！</li>
+          <li><strong>主要劣勢</strong>：未來若換回台幣需承擔匯率風險（但可用於子女海外資產配置）。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 10px;">
+      <div class="card" style="text-align:center;">
+        <div style="font-size:9pt; color:#6B7280;">總繳投入成本</div>
+        <div style="font-size:16pt; font-weight:800;">約 1,230 萬</div>
+        <div style="font-size:8pt; color:#9CA3AF;">台幣 vs 美元相同</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:9pt; color:#6B7280;">期滿身故保障差距</div>
+        <div style="font-size:16pt; font-weight:800; color:#DC2626;">差約 +1,714 萬</div>
+        <div style="font-size:8pt; color:#9CA3AF;">美元保障接近台幣 2 倍</div>
+      </div>
+      <div class="card" style="text-align:center;">
+        <div style="font-size:9pt; color:#6B7280;">第 6 年保本能力</div>
+        <div style="font-size:16pt; font-weight:800; color:#059669;">美元第6年保本</div>
+        <div style="font-size:8pt; color:#9CA3AF;">美保相傳 101.58%</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 11 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 12: 落地執行 -->
+  <div class="print-page">
+    <div class="slide-header">
+      <div class="slide-header-left">
+        <span class="tag-badge">落地方案</span>
+        <h2>趙董專屬執行規劃與資金無縫銜接</h2>
+        <p>115 年 6 月解約金 $15,468,196 元無縫接軌投保路徑</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 8px;">
+      <div class="card" style="border-top: 4px solid var(--primary);">
+        <div class="card-title">步驟 1：險種拍板與核保確認</div>
+        <div style="font-size: 9.5pt; color: var(--text-muted); line-height: 1.5; margin-top: 6px;">
+          • 建議以 <strong>保誠美保相傳</strong> 或 <strong>友邦萬寶富利</strong> 為首選。<br/>
+          • 趙董 58 歲，高保額壽險需安排生調與體檢，提早完成免除後顧之憂。<br/>
+          • 預先開立外幣帳戶（美元保單適用）。
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 4px solid var(--gold);">
+        <div class="card-title">步驟 2：115/06 解約金撥款入帳</div>
+        <div style="font-size: 9.5pt; color: var(--text-muted); line-height: 1.5; margin-top: 6px;">
+          • 原保德信投資型保單於 <strong>115 年 6 月滿期/解約</strong>。<br/>
+          • 預計領回現金 <strong>$15,468,196 元</strong>。<br/>
+          • 首期保費約 205 萬元（或 6.45 萬美元）直接扣繳，剩餘資金可置於高利外幣定存分年扣繳。
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 4px solid var(--green);">
+        <div class="card-title">步驟 3：指定受益人與分期約定</div>
+        <div style="font-size: 9.5pt; color: var(--text-muted); line-height: 1.5; margin-top: 6px;">
+          • 依《保險法》第 112 條指定特定繼承人為受益人，<strong>完全不計入遺產總額</strong>。<br/>
+          • 設定身故保險金<strong>分期定期給付</strong>功能，兼具家族保險信託效果，杜絕家族紛爭。
+        </div>
+      </div>
+    </div>
+
+    <div class="card highlight" style="margin-top: 12px;">
+      <div style="font-size: 12pt; font-weight: 800; color: #92400E; margin-bottom: 4px;">
+        💎 顧問團隊最終建議結論：
+      </div>
+      <div style="font-size: 10pt; color: #78350F; line-height: 1.5;">
+        若趙董家庭無特定的台幣單一偏好，<strong>強烈建議選擇【保誠人壽 美保相傳美元終身壽險】</strong>。總繳 38.6 萬美元（約 1,225 萬台幣），滿期身故保障直接來到 <strong>109.1 萬美元（約 3,460 萬台幣）</strong>，且第 6 年立即保本！既能完全補足 2,241 萬遺產稅現金缺口，又為家族創造出極致的跨國資產傳承效益。
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 12 頁</span>
+    </div>
+  </div>
+
+  <!-- PAGE 13: 封底諮詢頁 -->
+  <div class="print-page" style="justify-content:center; align-items:center; text-align:center;">
+    <div style="max-width: 600px;">
+      <span class="tag-badge" style="font-size: 11pt; padding: 4px 14px;">問大師家族辦公室 ｜ 傳承永續</span>
+      <h2 style="font-size: 28pt; margin: 12px 0 8px 0;">守護家族基業 ｜ 圓滿傳承智慧</h2>
+      <p style="font-size: 13pt; color: var(--warmbrown); margin-bottom: 24px;">
+        為竹北置地 趙賢彬 董事長量身打造之高額壽險決策分析
+      </p>
+
+      <div class="card" style="display: inline-block; padding: 18px 28px; border: 2px solid var(--gold); text-align: left;">
+        <div style="font-size: 12pt; font-weight: 700; color: var(--deepbrown); margin-bottom: 8px;">
+          諮詢顧問服務團隊：
+        </div>
+        <div style="font-size: 10pt; color: var(--text-muted); line-height: 1.7;">
+          • 服務單位：問大師家族辦公室傳承專案小組<br/>
+          • 專業範疇：家族保單資產健檢 ｜ 遺產稅源規劃 ｜ 跨代信託傳承<br/>
+          • 諮詢專線：garfiwang@gmail.com
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar" style="width: 100%; position: absolute; bottom: 14mm; left: 0; padding: 0 18mm; box-sizing: border-box;">
+      <span class="footer-brand">問大師家族辦公室 ｜ 專業傳承精算</span>
+      <span>高額人壽保單的選擇 ｜ 第 13 頁</span>
+    </div>
+  </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    // 列印版台幣圖表
+    const ctxTwd = document.getElementById('chartTwdPrint');
+    if (ctxTwd) {
+      new Chart(ctxTwd, {
+        type: 'line',
+        data: {
+          labels: ['第1年(58歲)', '第4年(61歲)', '第6年期滿', '第10年(67歲)', '第20年(77歲)', '滿期(109/110歲)'],
+          datasets: [
+            {
+              label: '保誠 金世代 (分紅)',
+              data: [1300.0, 1410.8, 1745.6, 1852.0, 2018.3, 2655.9],
+              borderColor: '#991B1B',
+              backgroundColor: '#991B1B',
+              borderWidth: 2.5,
+              tension: 0.2,
+              pointRadius: 3
+            },
+            {
+              label: '友邦 萬寶富裕 (利變)',
+              data: [1500.6, 1516.6, 1541.6, 1607.2, 1784.7, 2521.0],
+              borderColor: '#E11D48',
+              backgroundColor: '#E11D48',
+              borderWidth: 2.5,
+              borderDash: [4, 3],
+              tension: 0.2,
+              pointRadius: 3
+            },
+            {
+              label: '全球 豪威六六 (利變)',
+              data: [217.4, 1709.2, 1721.9, 1752.9, 1832.9, 2115.1],
+              borderColor: '#0369A1',
+              backgroundColor: '#0369A1',
+              borderWidth: 2,
+              tension: 0.2,
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          plugins: {
+            legend: { position: 'top', labels: { boxWidth: 10, font: { size: 9, weight: 'bold' } } }
+          },
+          scales: {
+            y: { ticks: { callback: v => v + ' 萬', font: { size: 8 } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+            x: { ticks: { font: { size: 8, weight: 'bold' } }, grid: { color: 'rgba(0,0,0,0.03)' } }
+          }
+        }
+      });
+    }
+
+    // 列印版美元圖表
+    const ctxUsd = document.getElementById('chartUsdPrint');
+    if (ctxUsd) {
+      new Chart(ctxUsd, {
+        type: 'line',
+        data: {
+          labels: ['第1年(58歲)', '第3年(60歲)', '第6年期滿', '第10年(67歲)', '第20年(77歲)', '滿期(109/110歲)'],
+          datasets: [
+            {
+              label: '保誠 美保相傳 (分紅)',
+              data: [31.0, 31.0, 109.1, 110.5, 114.9, 149.8],
+              borderColor: '#D97706',
+              backgroundColor: '#D97706',
+              borderWidth: 3,
+              tension: 0.15,
+              pointRadius: 4
+            },
+            {
+              label: '友邦 萬寶富利 (利變)',
+              data: [52.0, 52.6, 55.0, 60.1, 75.2, 157.0],
+              borderColor: '#E11D48',
+              backgroundColor: '#E11D48',
+              borderWidth: 2,
+              borderDash: [4, 3],
+              tension: 0.2,
+              pointRadius: 3
+            },
+            {
+              label: '全球 豪神68 (利變)',
+              data: [7.5, 60.9, 63.5, 68.0, 80.4, 138.0],
+              borderColor: '#0369A1',
+              backgroundColor: '#0369A1',
+              borderWidth: 2,
+              tension: 0.2,
+              pointRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: false,
+          plugins: {
+            legend: { position: 'top', labels: { boxWidth: 10, font: { size: 9, weight: 'bold' } } }
+          },
+          scales: {
+            y: { ticks: { callback: v => v + ' 萬鎂', font: { size: 8 } }, grid: { color: 'rgba(0,0,0,0.05)' } },
+            x: { ticks: { font: { size: 8, weight: 'bold' } }, grid: { color: 'rgba(0,0,0,0.03)' } }
+          }
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
